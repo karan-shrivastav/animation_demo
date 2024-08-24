@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
-class MyController extends GetxController with GetTickerProviderStateMixin {
+class MyFunctions extends GetxController with GetTickerProviderStateMixin {
   late List<AnimationController> controllers;
   late List<Animation<double>> animations;
   var lengthContainer = 1.obs;
@@ -33,7 +33,7 @@ class MyController extends GetxController with GetTickerProviderStateMixin {
   }
 
   void updateLengthContainer(String value) {
-    handleTap();
+    handleFunction();
     final int newLength = int.tryParse(value) ?? 1;
     lengthContainer.value = newLength;
     _initializeControllers();
@@ -65,10 +65,10 @@ class MyController extends GetxController with GetTickerProviderStateMixin {
 
   void updateSliderValue(double value) {
     currentSliderValue.value = value;
-    handleTap();
+    handleFunction();
   }
 
-  Future<void> handleTap() async {
+  Future<void> handleFunction() async {
     if (isAnimating.value) return;
     isAnimating.value = true;
 
@@ -106,13 +106,13 @@ class MyController extends GetxController with GetTickerProviderStateMixin {
 
     isAnimating.value = false;
 
-    handleTap();
+    handleFunction();
   }
 
   void startInitialAnimation() {
     if (controllers.isEmpty) {
       _initializeControllers();
     }
-    handleTap();
+    handleFunction();
   }
 }

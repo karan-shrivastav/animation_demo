@@ -32,7 +32,7 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final MyController controller = Get.put(MyController());
+    final MyFunctions controller = Get.put(MyFunctions());
     WidgetsBinding.instance.addPostFrameCallback((_) {
       controller.startInitialAnimation();
     });
@@ -121,7 +121,7 @@ class MyHomePage extends StatelessWidget {
                   itemCount: controller.lengthContainer.value,
                   itemBuilder: (context, index) {
                     return GestureDetector(
-                      onTap: controller.handleTap,
+                      onTap: controller.handleFunction,
                       child: LayoutBuilder(
                         builder: (context, constraints) {
                           final containerWidth = constraints.maxWidth;
